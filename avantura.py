@@ -32,12 +32,16 @@ trenutna = "hodnik"
 soba = sobe[trenutna]
 broj_poteza = 1
 
-print(f"== {soba['ime']} ==")
-print(soba["opis"])
-print(f"Izlazi: {(', '.join(sorted(soba['izlazi'])))}")
+def prikazi_sobu(soba):
+    print(f"== {soba['ime']} ==")
+    print(soba["opis"])
+    print(f"Izlazi: {(', '.join(sorted(soba['izlazi'])))}")
 
-if soba["predmeti"]:
-    print(f"Ovde vidiš: {', '.join(soba['predmeti'])}")
+    if soba["predmeti"]:
+        print(f"Ovde vidiš: {', '.join(soba['predmeti'])}") 
+
+
+prikazi_sobu(soba)
 
 komanda = input("> ").strip().lower()
 
@@ -54,12 +58,7 @@ while komanda != "kraj":
             trenutna = cilj
             soba = sobe[trenutna]
 
-            print(f"== {soba['ime']} ==")
-            print(soba["opis"])
-            print(f"Izlazi: {(', '.join(sorted(soba['izlazi'])))}")
-
-            if soba["predmeti"]:
-                print(f"Ovde vidiš: {', '.join(soba['predmeti'])}")
+            prikazi_sobu(soba)
 
     elif not reci:
         print("Ne možeš tamo.")
